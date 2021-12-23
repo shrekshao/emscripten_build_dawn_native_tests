@@ -74,17 +74,33 @@ set_target_properties(gtest_test PROPERTIES
 target_link_options(gtest_test
     # PRIVATE "SHELL:-gsource-map"
     # PRIVATE "SHELL:--source-map-base https://kai.graphics/webgpu-cross-platform-demo/out/web/"
-    # PRIVATE "SHELL:-s USE_WEBGPU=1"
+    PRIVATE "SHELL:-s USE_WEBGPU=1"
     PRIVATE "SHELL:-s ASSERTIONS=1"
     PRIVATE "SHELL:-s SAFE_HEAP=1"
     #PRIVATE "SHELL:--closure 1"
     #PRIVATE "SHELL:-s VERBOSE=1"
     )
 
+
 include_directories("${googletest_SOURCE_DIR}/include")
+include_directories("${googlemock_SOURCE_DIR}/include")
+include_directories("${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/")
+include_directories("${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/include")
+include_directories("${CMAKE_CURRENT_BINARY_DIR}/gen/src")
+include_directories("${CMAKE_CURRENT_BINARY_DIR}/gen/src/include")
+
 target_include_directories(gtest_test
     PUBLIC
+    
     "${googletest_SOURCE_DIR}/include"
+    "${googlemock_SOURCE_DIR}/include"
+
+    "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/"
+    "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/include"
+
+    "${CMAKE_CURRENT_BINARY_DIR}/gen/src"
+    "${CMAKE_CURRENT_BINARY_DIR}/gen/src/include"
+
     # "_deps/googletest-src/googletest/include/"
 )
 
@@ -93,6 +109,7 @@ target_include_directories(gtest_test
 # )
 target_link_libraries(gtest_test
   gtest_main
+  gmock_main
 )
 
 # include(GoogleTest)
