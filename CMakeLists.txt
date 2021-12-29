@@ -4,6 +4,10 @@ set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 project(hello)
 set(CMAKE_CXX_STANDARD 14)
 
+add_compile_options(-fno-rtti)
+add_link_options(-s LLD_REPORT_UNDEFINED)
+# add_link_options(-v)
+
 include(FetchContent)
 FetchContent_Declare(
   googletest
@@ -64,10 +68,45 @@ endif()
 
 enable_testing()
 
+
+
+# add_compile_options(gtest_test PUBLIC -fno-rtti)
+# target_compile_options(gtest_test PUBLIC -fno-rtti)
+
+# add_subdirectory(third_party/dawn)
+# add_subdirectory(third_party/dawn/src/utils)
+
+# target_sources(gtest_test PUBLIC
+#     "third_party/dawn/src/tests/unittests/validation/ValidationTest.cpp"
+# )
+
+file(GLOB all_SRCS
+        # "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/utils/SystemUtils.cpp"
+        "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/common/Log.cpp"
+        "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/utils/WGPUHelpers.cpp"
+        "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/utils/TerribleCommandBuffer.cpp"
+        "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/utils/ScopedAutoreleasePool.cpp"
+        # "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/dawn_wire/client/*.cpp"
+        # "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/dawn_wire/server/*.cpp"
+        # "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/dawn_wire/*.cpp"
+        # "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/utils/WireHelper.cpp"
+        "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/tests/DawnTest.cpp"
+        "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/tests/ToggleParser.cpp"
+        # "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/tests/unittests/*.cpp"
+        # "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/tests/unittests/wire/*.cpp"
+        "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/tests/unittests/validation/ValidationTest.cpp"
+        )
+
+# add_executable(
+#     gtest_test
+#     "gtest_test.cpp"
+#     )
 add_executable(
-  gtest_test
-  "gtest_test.cpp"
-)
+    gtest_test
+    
+    ${all_SRCS}
+    "gtest_test.cpp"
+    )
 
 set_target_properties(gtest_test PROPERTIES
         SUFFIX ".html")
@@ -77,6 +116,7 @@ target_link_options(gtest_test
     PRIVATE "SHELL:-s USE_WEBGPU=1"
     PRIVATE "SHELL:-s ASSERTIONS=1"
     PRIVATE "SHELL:-s SAFE_HEAP=1"
+    PRIVATE "SHELL:-s ASYNCIFY"
     #PRIVATE "SHELL:--closure 1"
     #PRIVATE "SHELL:-s VERBOSE=1"
     )
