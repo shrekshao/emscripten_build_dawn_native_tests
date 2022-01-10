@@ -5,6 +5,7 @@ project(hello)
 set(CMAKE_CXX_STANDARD 14)
 
 add_compile_options(-fno-rtti)
+# add_compile_options(-fsanitize=address)
 add_link_options(-s LLD_REPORT_UNDEFINED)
 # add_link_options(-v)
 
@@ -83,7 +84,13 @@ enable_testing()
 file(GLOB all_SRCS
         # "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/utils/SystemUtils.cpp"
         "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/common/Log.cpp"
+        "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/common/Constants.cpp"
+        "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/common/Assert.cpp"
+        "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/common/Math.cpp"
         "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/utils/WGPUHelpers.cpp"
+        "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/utils/TextureUtils.cpp"
+        "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/utils/TestUtils.cpp"
+        "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/utils/ComboRenderPipelineDescriptor.cpp"
         "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/utils/TerribleCommandBuffer.cpp"
         "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/utils/ScopedAutoreleasePool.cpp"
         # "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/dawn_wire/client/*.cpp"
@@ -95,6 +102,10 @@ file(GLOB all_SRCS
         # "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/tests/unittests/*.cpp"
         # "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/tests/unittests/wire/*.cpp"
         "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/tests/unittests/validation/ValidationTest.cpp"
+
+
+        "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/tests/end2end/BufferTests.cpp"
+        # "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/tests/end2end/CullingTests.cpp"
         )
 
 # add_executable(
@@ -117,6 +128,7 @@ target_link_options(gtest_test
     PRIVATE "SHELL:-s ASSERTIONS=1"
     PRIVATE "SHELL:-s SAFE_HEAP=1"
     PRIVATE "SHELL:-s ASYNCIFY"
+    PRIVATE "SHELL:-s ALLOW_MEMORY_GROWTH"
     #PRIVATE "SHELL:--closure 1"
     #PRIVATE "SHELL:-s VERBOSE=1"
     )
