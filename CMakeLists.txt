@@ -87,6 +87,7 @@ file(GLOB all_SRCS
         "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/common/Constants.cpp"
         "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/common/Assert.cpp"
         "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/common/Math.cpp"
+        "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/utils/SystemUtils.cpp"
         "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/utils/WGPUHelpers.cpp"
         "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/utils/TextureUtils.cpp"
         "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/utils/TestUtils.cpp"
@@ -102,10 +103,47 @@ file(GLOB all_SRCS
         # "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/tests/unittests/*.cpp"
         # "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/tests/unittests/wire/*.cpp"
         "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/tests/unittests/validation/ValidationTest.cpp"
+        
+
+        # "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/dawn_node/interpo/Core.cpp"
 
 
-        "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/tests/end2end/BufferTests.cpp"
+        # # Map and Unmap issue
+        # "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/tests/end2end/BufferTests.cpp"
+        # # CreatePipelineAsync unimplemented
+        # "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/tests/end2end/CreatePipelineAsyncTests.cpp"
+        # # ok
         # "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/tests/end2end/CullingTests.cpp"
+        # # failed and skipped
+        # "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/tests/end2end/DepthStencilCopyTests.cpp"
+        # # 19 Pass, 1 skip, texture3D fails
+        # "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/tests/end2end/TextureViewTests.cpp"
+
+
+        # "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/tests/end2end/*.cpp"
+
+        # "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/tests/unittests/validation/*.cpp"
+
+        # # GetSupportedLimits
+        # "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/tests/unittests/validation/BufferValidationTests.cpp"
+        # "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/tests/unittests/validation/CopyCommandsValidationTests.cpp"
+        # "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/tests/unittests/validation/ComputeValidationTests.cpp"
+        "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/tests/unittests/validation/OverridableConstantsValidationTests.cpp"
+        # "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/tests/unittests/validation/RenderPassDescriptorValidationTests.cpp"
+        # "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/tests/unittests/validation/SamplerValidationTests.cpp"
+        )
+
+list(REMOVE_ITEM all_SRCS
+        "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/tests/end2end/D3D12CachingTests.cpp"
+        "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/tests/end2end/D3D12ResourceWrappingTests.cpp"
+        "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/tests/end2end/ExternalTextureTests.cpp"
+        "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/tests/end2end/IOSurfaceWrappingTests.cpp"
+        "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/tests/end2end/WindowSurfaceTests.cpp"
+        "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/tests/end2end/VideoViewsTests_gbm.cpp"
+        "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/tests/end2end/VideoViewsTests_win.cpp"
+
+        # absl
+        "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/tests/unittests/validation/Error.cpp"
         )
 
 # add_executable(
@@ -130,7 +168,7 @@ target_link_options(gtest_test
     PRIVATE "SHELL:-s ASYNCIFY"
     PRIVATE "SHELL:-s ALLOW_MEMORY_GROWTH"
     #PRIVATE "SHELL:--closure 1"
-    #PRIVATE "SHELL:-s VERBOSE=1"
+    # PRIVATE "SHELL:-s VERBOSE=1"
     )
 
 

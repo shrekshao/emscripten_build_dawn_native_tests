@@ -334,6 +334,26 @@ void doRenderTest() {
     issueContentsCheck(__FUNCTION__, readbackBuffer, expectData);
 }
 
+
+void doValidationTest() {
+    {
+        wgpu::BufferDescriptor descriptor;
+        descriptor.size = 4;
+        descriptor.usage = wgpu::BufferUsage::MapRead | wgpu::BufferUsage::Uniform;
+
+
+        device.PushErrorScope(wgpu::ErrorFilter::Validation);
+
+        device.CreateBuffer(&descriptor);
+
+        device.PopErrorScope(
+            [](WGPUErrorType type, const char* message, void* userdata) {
+                printf("\n%d %s\n", type, message);
+            },
+            nullptr);
+    }
+}
+
 #ifdef __EMSCRIPTEN__
 wgpu::SwapChain swapChain;
 
@@ -347,11 +367,13 @@ void run() {
     init();
 
     static constexpr int kNumTests = 5;
-    doCopyTestMappedAtCreation(false);
-    doCopyTestMappedAtCreation(true);
-    doCopyTestMapAsync(false);
-    doCopyTestMapAsync(true);
-    doRenderTest();
+    // doCopyTestMappedAtCreation(false);
+    // doCopyTestMappedAtCreation(true);
+    // doCopyTestMapAsync(false);
+    // doCopyTestMapAsync(true);
+    // doRenderTest();
+    
+    doValidationTest();
 
 #ifdef __EMSCRIPTEN__
     {
