@@ -67,7 +67,7 @@ endif()
 
 
 
-enable_testing()
+# enable_testing()
 
 
 
@@ -92,7 +92,7 @@ file(GLOB all_SRCS
         "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/utils/TextureUtils.cpp"
         "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/utils/TestUtils.cpp"
         "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/utils/ComboRenderPipelineDescriptor.cpp"
-        "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/utils/TerribleCommandBuffer.cpp"
+        # "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/utils/TerribleCommandBuffer.cpp"
         "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/utils/ScopedAutoreleasePool.cpp"
         # "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/dawn_wire/client/*.cpp"
         # "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/dawn_wire/server/*.cpp"
@@ -174,10 +174,10 @@ target_link_options(gtest_test
 
 include_directories("${googletest_SOURCE_DIR}/include")
 include_directories("${googlemock_SOURCE_DIR}/include")
-include_directories("${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/")
-include_directories("${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/include")
-include_directories("${CMAKE_CURRENT_BINARY_DIR}/gen/src")
-include_directories("${CMAKE_CURRENT_BINARY_DIR}/gen/src/include")
+# include_directories("${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/")
+#include_directories("${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/include")
+# include_directories("${CMAKE_CURRENT_BINARY_DIR}/gen/src")
+#include_directories("${CMAKE_CURRENT_BINARY_DIR}/gen/src/include")
 
 target_include_directories(gtest_test
     PUBLIC
@@ -186,10 +186,11 @@ target_include_directories(gtest_test
     "${googlemock_SOURCE_DIR}/include"
 
     "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/"
-    "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/include"
+    # "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/include"
+    # "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/include/dawn_platform"
 
     "${CMAKE_CURRENT_BINARY_DIR}/gen/src"
-    "${CMAKE_CURRENT_BINARY_DIR}/gen/src/include"
+    # "${CMAKE_CURRENT_BINARY_DIR}/gen/src/include"
 
     # "_deps/googletest-src/googletest/include/"
 )
