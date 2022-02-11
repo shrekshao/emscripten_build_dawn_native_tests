@@ -82,72 +82,70 @@ endif()
 # )
 
 file(GLOB all_SRCS
-        # "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/utils/SystemUtils.cpp"
-        "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/common/Log.cpp"
-        "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/common/Constants.cpp"
-        "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/common/Assert.cpp"
-        "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/common/Math.cpp"
-        "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/utils/SystemUtils.cpp"
-        "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/utils/WGPUHelpers.cpp"
-        "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/utils/TextureUtils.cpp"
-        "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/utils/TestUtils.cpp"
-        "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/utils/ComboRenderBundleEncoderDescriptor.cpp"
-        "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/utils/ComboRenderPipelineDescriptor.cpp"
-        # "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/utils/TerribleCommandBuffer.cpp"
-        "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/utils/ScopedAutoreleasePool.cpp"
-        # "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/dawn_wire/client/*.cpp"
-        # "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/dawn_wire/server/*.cpp"
-        # "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/dawn_wire/*.cpp"
-        # "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/utils/WireHelper.cpp"
-        "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/tests/DawnTest.cpp"
-        "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/tests/ToggleParser.cpp"
-        # "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/tests/unittests/*.cpp"
-        # "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/tests/unittests/wire/*.cpp"
-        "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/tests/unittests/validation/ValidationTest.cpp"
+        # "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/dawn/utils/SystemUtils.cpp"
+        "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/dawn/common/Log.cpp"
+        "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/dawn/common/Constants.cpp"
+        "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/dawn/common/Assert.cpp"
+        "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/dawn/common/Math.cpp"
+        "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/dawn/utils/SystemUtils.cpp"
+        "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/dawn/utils/WGPUHelpers.cpp"
+        "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/dawn/utils/TextureUtils.cpp"
+        "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/dawn/utils/TestUtils.cpp"
+        "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/dawn/utils/ComboRenderBundleEncoderDescriptor.cpp"
+        "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/dawn/utils/ComboRenderPipelineDescriptor.cpp"
+        # "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/dawn/utils/TerribleCommandBuffer.cpp"
+        "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/dawn/utils/ScopedAutoreleasePool.cpp"
+        # "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/dawn/dawn_wire/client/*.cpp"
+        # "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/dawn/dawn_wire/server/*.cpp"
+        # "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/dawn/dawn_wire/*.cpp"
+        # "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/dawn/utils/WireHelper.cpp"
+        "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/dawn/tests/DawnTest.cpp"
+        "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/dawn/tests/ToggleParser.cpp"
+        # "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/dawn/tests/unittests/*.cpp"
+        # "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/dawn/tests/unittests/wire/*.cpp"
+        "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/dawn/tests/unittests/validation/ValidationTest.cpp"
         
-
-        # "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/dawn_node/interpo/Core.cpp"
 
 
         # # Map and Unmap issue
-        "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/tests/end2end/BufferTests.cpp"
+        "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/dawn/tests/end2end/BufferTests.cpp"
         # # CreatePipelineAsync unimplemented
-        # "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/tests/end2end/CreatePipelineAsyncTests.cpp"
+        # "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/dawn/tests/end2end/CreatePipelineAsyncTests.cpp"
         # # ok
-        # "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/tests/end2end/CullingTests.cpp"
+        # "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/dawn/tests/end2end/CullingTests.cpp"
         # # failed and skipped
-        # "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/tests/end2end/DepthStencilCopyTests.cpp"
+        # "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/dawn/tests/end2end/DepthStencilCopyTests.cpp"
         # # 19 Pass, 1 skip, texture3D fails
-        # "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/tests/end2end/TextureViewTests.cpp"
+        # "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/dawn/tests/end2end/TextureViewTests.cpp"
 
 
-        # "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/tests/end2end/*.cpp"
+        # "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/dawn/tests/end2end/*.cpp"
 
-        # "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/tests/unittests/validation/*.cpp"
+        # "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/dawn/tests/unittests/validation/*.cpp"
 
         # # GetSupportedLimits
-        # "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/tests/unittests/validation/BufferValidationTests.cpp"
-        # "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/tests/unittests/validation/CopyCommandsValidationTests.cpp"
-        # "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/tests/unittests/validation/CommandBufferValidationTests.cpp"
-        # "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/tests/unittests/validation/ComputeValidationTests.cpp"
-        # "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/tests/unittests/validation/OverridableConstantsValidationTests.cpp"
-        # "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/tests/unittests/validation/RenderPassDescriptorValidationTests.cpp"
-        # "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/tests/unittests/validation/RenderPipelineValidationTests.cpp"
-        # "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/tests/unittests/validation/SamplerValidationTests.cpp"
-        # "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/tests/unittests/validation/VertexBufferValidationTests.cpp"
+        # "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/dawn/tests/unittests/validation/BufferValidationTests.cpp"
+        # "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/dawn/tests/unittests/validation/CopyCommandsValidationTests.cpp"
+        # "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/dawn/tests/unittests/validation/CommandBufferValidationTests.cpp"
+        # "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/dawn/tests/unittests/validation/ComputeValidationTests.cpp"
+        # "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/dawn/tests/unittests/validation/OverridableConstantsValidationTests.cpp"
+        # "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/dawn/tests/unittests/validation/RenderPassDescriptorValidationTests.cpp"
+        # "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/dawn/tests/unittests/validation/RenderPipelineValidationTests.cpp"
+        # "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/dawn/tests/unittests/validation/SamplerValidationTests.cpp"
+        # "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/dawn/tests/unittests/validation/VertexBufferValidationTests.cpp"
         )
 
 list(REMOVE_ITEM all_SRCS
-        "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/tests/end2end/D3D12CachingTests.cpp"
-        "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/tests/end2end/D3D12ResourceWrappingTests.cpp"
-        "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/tests/end2end/ExternalTextureTests.cpp"
-        "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/tests/end2end/IOSurfaceWrappingTests.cpp"
-        "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/tests/end2end/WindowSurfaceTests.cpp"
-        "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/tests/end2end/VideoViewsTests_gbm.cpp"
-        "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/tests/end2end/VideoViewsTests_win.cpp"
+        "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/dawn/tests/end2end/D3D12CachingTests.cpp"
+        "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/dawn/tests/end2end/D3D12ResourceWrappingTests.cpp"
+        "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/dawn/tests/end2end/ExternalTextureTests.cpp"
+        "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/dawn/tests/end2end/IOSurfaceWrappingTests.cpp"
+        "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/dawn/tests/end2end/WindowSurfaceTests.cpp"
+        "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/dawn/tests/end2end/VideoViewsTests_gbm.cpp"
+        "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/dawn/tests/end2end/VideoViewsTests_win.cpp"
 
         # absl
-        "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/tests/unittests/validation/Error.cpp"
+        "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/dawn/tests/unittests/validation/Error.cpp"
         )
 
 # add_executable(
@@ -181,7 +179,6 @@ include_directories("${googlemock_SOURCE_DIR}/include")
 # include_directories("${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/")
 #include_directories("${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/include")
 # include_directories("${CMAKE_CURRENT_BINARY_DIR}/gen/src")
-#include_directories("${CMAKE_CURRENT_BINARY_DIR}/gen/src/include")
 
 target_include_directories(gtest_test
     PUBLIC
@@ -190,11 +187,8 @@ target_include_directories(gtest_test
     "${googlemock_SOURCE_DIR}/include"
 
     "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/"
-    # "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/include"
-    # "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/include/dawn_platform"
 
-    "${CMAKE_CURRENT_BINARY_DIR}/gen/src"
-    # "${CMAKE_CURRENT_BINARY_DIR}/gen/src/include"
+    # "${CMAKE_CURRENT_BINARY_DIR}/gen/src"
 
     # "_deps/googletest-src/googletest/include/"
 )
