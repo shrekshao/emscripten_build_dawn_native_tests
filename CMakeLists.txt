@@ -91,6 +91,7 @@ file(GLOB all_SRCS
         "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/utils/WGPUHelpers.cpp"
         "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/utils/TextureUtils.cpp"
         "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/utils/TestUtils.cpp"
+        "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/utils/ComboRenderBundleEncoderDescriptor.cpp"
         "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/utils/ComboRenderPipelineDescriptor.cpp"
         # "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/utils/TerribleCommandBuffer.cpp"
         "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/utils/ScopedAutoreleasePool.cpp"
@@ -109,7 +110,7 @@ file(GLOB all_SRCS
 
 
         # # Map and Unmap issue
-        # "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/tests/end2end/BufferTests.cpp"
+        "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/tests/end2end/BufferTests.cpp"
         # # CreatePipelineAsync unimplemented
         # "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/tests/end2end/CreatePipelineAsyncTests.cpp"
         # # ok
@@ -127,10 +128,13 @@ file(GLOB all_SRCS
         # # GetSupportedLimits
         # "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/tests/unittests/validation/BufferValidationTests.cpp"
         # "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/tests/unittests/validation/CopyCommandsValidationTests.cpp"
+        # "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/tests/unittests/validation/CommandBufferValidationTests.cpp"
         # "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/tests/unittests/validation/ComputeValidationTests.cpp"
-        "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/tests/unittests/validation/OverridableConstantsValidationTests.cpp"
+        # "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/tests/unittests/validation/OverridableConstantsValidationTests.cpp"
         # "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/tests/unittests/validation/RenderPassDescriptorValidationTests.cpp"
+        # "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/tests/unittests/validation/RenderPipelineValidationTests.cpp"
         # "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/tests/unittests/validation/SamplerValidationTests.cpp"
+        # "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/tests/unittests/validation/VertexBufferValidationTests.cpp"
         )
 
 list(REMOVE_ITEM all_SRCS
