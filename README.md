@@ -1,20 +1,12 @@
-This is a small test app that uses WebGPU's unofficial
-[`webgpu.h` header](https://github.com/webgpu-native/webgpu-headers/blob/main/webgpu.h)
-as a platform-agnostic hardware abstraction layer.
-It uses a C++ layer over `webgpu.h`, called `webgpu_cpp.h`.
-On native platforms, this project can be built against
-[Dawn](https://dawn.googlesource.com/dawn/), Chromium's native WebGPU implementation.
-On the Web, this project can be built against Emscripten, which implements `webgpu.h`
-on top of the browser's own WebGPU JavaScript API (if
-[enabled](https://github.com/gpuweb/gpuweb/wiki/Implementation-Status)).
-It currently hasn't been set up to build against
-[wgpu-native](https://github.com/gfx-rs/wgpu-native)'s `webgpu.h` implementation,
+# Emscripten 
 
-[googletest](https://google.github.io/googletest/quickstart-cmake.html) is managed by cmake
+# TODO: README
 
-but that is a goal.
+This is **WIP** repo to build dawn end2end and unittests built by emscripten without dawn native source, and run against WebGPU implementations like browsers and dawn_node. So that we can better test emscripten webgpu implementations.
 
-**Check the [issues](https://github.com/kainino0x/webgpu-cross-platform-demo/issues) tab for known issues.**
+![](imgs/dawn_end2end_tests.png)
+
+![](imgs/dawn_unittests.png)
 
 ## Building
 
@@ -22,14 +14,19 @@ Instructions are for Linux/Mac; they will need to be adapted to work on Windows 
 
 ### Web build
 
-This has been mainly tested with Chrome Canary on Mac, but should work on
+This has been mainly tested with Chrome unstable on Linux, but should work on
 Chrome/Edge/Firefox on any platform with support.
 Requires `chrome://flags/#enable-unsafe-webgpu` on Chrome/Edge.
+Requires additional `--enable-features=Vulkan,UseSkiaRenderer` cmd line arg to enable WebGPU on Linux.
+
 
 **Note:** To build, the active Emscripten version must be at least 3.14 (FetchContent_MakeAvailable).
 
 ```sh
-# Make sure Emscripten tools are in the path.
+# get third_party/dawn source
+git submodule update --init --recursive
+
+# Make sure Emscripten tools are in the path. tot install is needed
 pushd path/to/emsdk
 source emsdk_env.sh
 popd
@@ -37,5 +34,5 @@ popd
 mkdir out
 cd out
 emcmake cmake ..
-make clean all
+make clean gtest_test
 ```
