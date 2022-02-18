@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.10)
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
 project(hello)
-set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD 17)
 
 add_compile_options(-fno-rtti)
 # add_compile_options(-fsanitize=address)
@@ -88,6 +88,7 @@ file(GLOB all_SRCS
         "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/dawn/common/Assert.cpp"
         "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/dawn/common/Math.cpp"
         "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/dawn/utils/SystemUtils.cpp"
+        "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/dawn/utils/TestUtils.cpp"
         "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/dawn/utils/WGPUHelpers.cpp"
         "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/dawn/utils/TextureUtils.cpp"
         "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/dawn/utils/TestUtils.cpp"
@@ -99,7 +100,9 @@ file(GLOB all_SRCS
         # "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/dawn/dawn_wire/server/*.cpp"
         # "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/dawn/dawn_wire/*.cpp"
         # "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/dawn/utils/WireHelper.cpp"
-        "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/dawn/tests/DawnTest.cpp"
+        
+        # "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/dawn/tests/DawnTest.cpp"
+
         "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/dawn/tests/ToggleParser.cpp"
         # "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/dawn/tests/unittests/*.cpp"
         # "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/dawn/tests/unittests/wire/*.cpp"
@@ -108,7 +111,7 @@ file(GLOB all_SRCS
 
 
         # # Map and Unmap issue
-        "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/dawn/tests/end2end/BufferTests.cpp"
+        # "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/dawn/tests/end2end/BufferTests.cpp"
         # # CreatePipelineAsync unimplemented
         # "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/dawn/tests/end2end/CreatePipelineAsyncTests.cpp"
         # # ok
@@ -132,7 +135,9 @@ file(GLOB all_SRCS
         # "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/dawn/tests/unittests/validation/RenderPassDescriptorValidationTests.cpp"
         # "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/dawn/tests/unittests/validation/RenderPipelineValidationTests.cpp"
         # "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/dawn/tests/unittests/validation/SamplerValidationTests.cpp"
-        # "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/dawn/tests/unittests/validation/VertexBufferValidationTests.cpp"
+        "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/dawn/tests/unittests/validation/VertexBufferValidationTests.cpp"
+        
+        # "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/dawn/tests/unittests/validation/*.cpp"
         )
 
 list(REMOVE_ITEM all_SRCS
@@ -146,6 +151,13 @@ list(REMOVE_ITEM all_SRCS
 
         # absl
         "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/dawn/tests/unittests/validation/Error.cpp"
+        
+        # External texture
+        "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/dawn/tests/unittests/validation/BindGroupValidationTests.cpp"
+        "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/dawn/tests/unittests/validation/CommandEncoder.cpp"
+        "${CMAKE_CURRENT_SOURCE_DIR}/third_party/dawn/src/dawn/tests/unittests/validation/CommandBufferValidationTests.cpp"
+
+        # native
         )
 
 # add_executable(
